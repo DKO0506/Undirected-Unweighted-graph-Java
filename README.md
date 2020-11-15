@@ -1,7 +1,6 @@
 # Ex0
 
 
-For Installation https://github.com/simon-pikalov/Ariel_OOP_2020/tree/master/Assignments/Ex0
 
 
 ### Author:
