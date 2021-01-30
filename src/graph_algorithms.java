@@ -1,6 +1,3 @@
-package ex0;
-
-
 /**
  * This interface represents the "regular" Graph Theory algorithms including:
  * 0. clone(); (copy)

@@ -1,8 +1,3 @@
-
-
-
-package ex0;
-
 import java.util.*;
 
 public class NodeData implements node_data {
@@ -33,9 +28,13 @@ public class NodeData implements node_data {
         this.info = "";
     }
 
+    public NodeData(node_data other) {
+        adjacencyMap = new HashMap<>();
+        this.key = other.getKey();
+        this.Tag = other.getTag();
+    }
 
     public NodeData(int k) {
-        adjacencyMap = new HashMap<>();
         this.key = k;
     }
 
@@ -63,23 +62,21 @@ public class NodeData implements node_data {
 
     /**
      * return true iff this<==>key are adjacent, as an edge between them.
+     *
      * @param key
      * @return
      */
 
     @Override
     public boolean hasNi(int key) {
-
-        for (node_data v : adjacencyMap.values()) {
-            if (v.getKey() == key) return true;
-        }
-        return false;
+        return adjacencyMap.containsKey(key);
     }
 
 
-    /** This method adds the node_data (t) to this node_data.
+    /**
+     * This method adds the node_data (t) to this node_data.
      * This method is wrongly designed! and was used mainly for educational example - to be improved in Ex1
-     * */
+     */
     @Override
     public void addNi(node_data t) {
 
@@ -89,6 +86,7 @@ public class NodeData implements node_data {
 
     /**
      * Removes the edge this-node,
+     *
      * @param node
      */
     @Override
@@ -99,6 +97,7 @@ public class NodeData implements node_data {
 
     /**
      * return the remark (meta data) associated with this node.
+     *
      * @return
      */
     @Override
@@ -109,6 +108,7 @@ public class NodeData implements node_data {
 
     /**
      * Allows changing the remark (meta data) associated with this node.
+     *
      * @param s
      */
     @Override
@@ -119,6 +119,7 @@ public class NodeData implements node_data {
     /**
      * Temporal data (aka color: e,g, white, gray, black)
      * which can be used be algorithms
+     *
      * @return
      */
     @Override
@@ -130,6 +131,7 @@ public class NodeData implements node_data {
     /**
      * Allow setting the "tag" value for temporal marking an node - common
      * practice for marking by algorithms.
+     *
      * @param t - the new value of the tag
      */
     @Override

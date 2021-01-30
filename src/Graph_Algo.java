@@ -1,18 +1,15 @@
-package ex0;
-
-
-import java.io.*;
 import java.util.*;
 
+@SuppressWarnings("ALL")
 public class Graph_Algo implements graph_algorithms {
 
     private graph algo;
+
     public Graph_Algo() {
         algo = new Graph_DS();
     }
-    public Graph_Algo(graph g) {
-        algo = new Graph_DS(g);
-    }
+
+
     /**
      * Initialize  the graph on which this set of algorithms operates on.
      *
@@ -22,6 +19,7 @@ public class Graph_Algo implements graph_algorithms {
     public void init(graph g) {
         this.algo = g;
     }
+
     /**
      * returns true if this graph is empty
      * otherwise false.
@@ -39,9 +37,16 @@ public class Graph_Algo implements graph_algorithms {
      */
     @Override
     public graph copy() {
-
-        graph Copy = new Graph_DS(this.algo);
-        return Copy;
+        graph ans = new Graph_DS();
+       for (node_data v:algo.getV()){
+           ans.addNode(new NodeData(v));
+       }
+       for (node_data v:algo.getV()){
+           for (node_data u:v.getNi()){
+               ans.connect(v.getKey(),u.getKey());
+           }
+       }
+       return ans;
     }
 
     /**
@@ -163,7 +168,6 @@ public class Graph_Algo implements graph_algorithms {
             return adjList;
         }
         return adjList;
-
     }
 
     @Override

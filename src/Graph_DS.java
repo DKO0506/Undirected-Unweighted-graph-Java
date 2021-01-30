@@ -1,6 +1,3 @@
-package ex0;
-
-
 import java.util.*;
 
 
@@ -19,22 +16,7 @@ public class Graph_DS implements graph {
         EC = 0;
     }
 
-    public Graph_DS(graph other) {
-        this.gMap = new HashMap<>();
-        NC = other.nodeSize();
-        this.MC = other.getMC();
-        this.EC = other.edgeSize();
-        for (node_data v : other.getV()) {
-            node_data copy = new NodeData(v.getKey());
-            this.addNode(copy);
-        }
-        for (node_data v : other.getV()) {
-            for (node_data u : v.getNi()) {
-                this.connect(v.getKey(), u.getKey());
-            }
-        }
 
-    }
 
     /**
      * returns  the node_data by the node_id,

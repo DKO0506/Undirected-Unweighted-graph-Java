@@ -1,5 +1,3 @@
-package ex0;
-
 import java.util.Collection;
 
 
